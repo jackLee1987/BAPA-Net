@@ -1,8 +1,14 @@
 # BAPA-Net
-PyTorch implementation of "[BAPA-Net: Cross-Domain Few-Shot Object Detection in Remote Sensing via Background-Aligned Prototype Aggregation]"
+### Cross-Domain Few-Shot Object Detection in Remote Sensing via Background-Aligned Prototype Aggregation
 
-The core code has been published, and the full code will be open source after the paper is accepted. Thank you for your attention!📦📦📦
+This repository provides the **PyTorch implementation** of the paper:  
+**BAPA-Net: Cross-Domain Few-Shot Object Detection in Remote Sensing via Background-Aligned Prototype Aggregation**
 
+## 📢 Project Status
+- ✅ Core code has been publicly released.
+- 📌 The complete source code will be open-sourced upon acceptance of the paper.
+
+Thank you for your attention and support! 🙏
 ## The Environments
 The evaluation environments we adopted are recorded in the following section. Below are the system requirements and setup instructions for reproducing the evaluation environment.
 
