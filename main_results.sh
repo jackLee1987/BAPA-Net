@@ -1,0 +1,26 @@
+datalist=(
+#dior
+#uodd
+#ssdd
+nwpu10
+#"mlcd"
+#"uav"
+)
+shot_list=(
+#1
+#5
+10
+)
+model_list=(
+"l"
+#"b"
+#"s"
+)
+for model in "${model_list[@]}"; do
+  for dataset in "${datalist[@]}"; do
+    for shot in "${shot_list[@]}"; do
+      CUDA_VISIBLE_DEVICES=0 python tools/train_net.py   --num-gpus 1 --config-file configs/${dataset}/vit${model}_shot${shot}_${dataset}_finetune.yaml MODEL.WEIGHTS weights/trained/vit${model}_0089999.pth DE.OFFLINE_RPN_CONFIG configs/RPN/mask_rcnn_R_50_C4_1x_ovd_FSD.yaml OUTPUT_DIR output/vit${model}/${dataset}_${shot}shot/
+      #CUDA_VISIBLE_DEVICES=0 python tools/train_net.py --eval-only --num-gpus 1 --config-file configs/${dataset}/vit${model}_shot${shot}_${dataset}_finetune.yaml MODEL.WEIGHTS output/vit${model}/${dataset}_${shot}shot_CD-ViTO-all/model_final.pth DE.OFFLINE_RPN_CONFIG configs/RPN/mask_rcnn_R_50_C4_1x_ovd_FSD.yaml OUTPUT_DIR output/vit${model}/${dataset}_${shot}shot/
+    done
+  done
+done

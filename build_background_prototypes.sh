@@ -1,0 +1,33 @@
+#!/bin/bash
+if [ ! -d "prototypes_init" ]; then
+  mkdir "prototypes_init"
+  echo "prototypes_init folder created."
+else
+  echo "prototypes_init folder already exists."
+fi
+data_list=(
+"DIOR"
+"UODD"
+"SSDD"
+"NWPU10"
+"MLCD"
+"UAV"
+)
+shot_list=(
+1
+5
+10
+)
+model_list=(
+"l"
+)
+for model in "${model_list[@]}"; do
+  for dataset in "${data_list[@]}"; do
+    for shot in ${shot_list[@]}; do
+      python3 ./tools/extract_instance_prototypes_background.py   --dataset ${dataset}_${shot}shot  --model vit${model}14 --epochs 1
+      echo "extract_instance_prototypes_background with vit${model} for ${shot}shot ${dataset} done, save at weights/background/ dir."
+    done
+  done
+done
+
+#CUBLAS 问题 https://blog.csdn.net/wtyuong/article/details/145600191
