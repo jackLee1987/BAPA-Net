@@ -1,37 +1,45 @@
-# BAPA-Net
-### Cross-Domain Few-Shot Object Detection in Remote Sensing via Background-Aligned Prototype Aggregation
+# BAPA-Net: Background-Aligned Prototype Aggregation
 
-This repository provides the **PyTorch implementation** of the paper:  
-**BAPA-Net: Cross-Domain Few-Shot Object Detection in Remote Sensing via Background-Aligned Prototype Aggregation**
+### Official PyTorch Implementation of "Cross-Domain Few-Shot Object Detection in Remote Sensing via Background-Aligned Prototype Aggregation"
+
+[![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)](https://pytorch.org/)
+[![Python](https://img.shields.io/badge/Python-3.9-blue.svg?style=flat&logo=python&logoColor=white)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
+
+BAPA-Net is a synergistic architecture designed to fortify cross-domain representational robustness in remote sensing. It addresses the challenges of geospatial domain shifts and intricate background interference by integrating three pivotal mechanisms: **CBFA** for background alignment, **SMPA** for prototype refinement, and **PRKA** for knowledge aggregation.
+
+---
 
 ## 📢 Project Status
-- ✅ Core code has been publicly released.
-- 📌 The complete source code will be open-sourced upon acceptance of the paper.
+- ✅ **Core code** has been publicly released.
+- 📌 The **complete source code** will be open-sourced upon acceptance of the paper.
 
-Thank you for your attention and support! 🙏
-## The Environments
-The evaluation environments we adopted are recorded in the following section. Below are the system requirements and setup instructions for reproducing the evaluation environment.
+---
 
-### Required Environment Setup
-We suggest using Anaconda for environment management. Here's how to set up the environment for the challenge:
+## 💻 Environment Setup
+We recommend using **Anaconda** or **Miniconda** to manage the software environment for reproducibility.
 
-- **Step 1**: conda environment create:
-  ```bash
-    conda create -n cdfsod python=3.9
-    conda activate cdfsod
-- **Step 2**: install other libs:
-  ```bash
-    cd BAPA-Net
+### Installation Steps
+1. **Create and Activate Conda Environment**:
+   ```bash
+   # Initialize a clean Python 3.9 environment
+   conda create -n cdfsod python=3.9 -y
+   conda activate cdfsod
+2. **Install Project Dependencies**:
+   ```bash
+    # Install core dependencies and the package in editable mode
     pip install -r requirements.txt
     pip install -e ./
-or take it as a reference based on your original environments.
-
-## The Train and Validation Datasets
-We take COCO as source data and DIOR, NWPU VHR-10,UAV,MLCD,UODD and SSDD as validation datasets.
-
-The target datasets could be easily downloaded in the following links:**[https://pan.baidu.com/s/1OmH8d9vxaTk1pVEXMk4thg?pwd=4ru6 Extraction Code: 4ru6)**
 
 
+## 📂 Datasets & Weights
+BAPA-Net uses MS-COCO as the source domain and evaluates on six diverse remote sensing datasets: DIOR, NWPU VHR-10, UAV, MLCD, UODD, and SSDD.
+
+**🔗 Data Download**
+Baidu Netdisk: **[https://pan.baidu.com/s/1OmH8d9vxaTk1pVEXMk4thg?pwd=4ru6 Extraction Code: 4ru6)**
+
+
+## 🏗️ Directory Organization
 After downloading all the necessary validation datasets, make sure they are organized as follows:
 
 ```bash
@@ -70,7 +78,9 @@ And the prototypes_init should be organized as follows:
 |--DIOR_10shot.vitl14.bbox.pkl
 |--DIOR_10shot.vitl14.bbox_ori.pkl
 ```
-## Preparatory Work Before Training
+
+## 🚀 Preparatory Work & Execution
+
 - **Step 1**: Generate cache_models:
   ```bash
     bash bulid_cache.sh
@@ -84,6 +94,11 @@ And the prototypes_init should be organized as follows:
   ```bash
     bash main_results.sh  
   
+## 🤝 Acknowledgements
+This research is built upon several foundational open-source projects. We extend our gratitude to the authors of:
 
-## Acknowledgement
-Our work is built upon [DE-ViT](https://github.com/mlzxy/devit) and [CD-ViTO](https://github.com/lovelyqian/CDFSOD-benchmark), and also we use the codes of [ViTDeT](https://github.com/ViTAE-Transformer/ViTDet), [Detic](https://github.com/facebookresearch/Detic) to test them under this new benchmark. Thanks for their work.
+[DE-ViT](https://github.com/mlzxy/devit) and [CD-ViTO](https://github.com/lovelyqian/CDFSOD-benchmark): For the core few-shot framework and evaluation protocols.
+
+[ViTDeT](https://github.com/ViTAE-Transformer/ViTDet), [Detic](https://github.com/facebookresearch/Detic): For the benchmarking codebases.
+
+© 2024 BAPA-Net Team. Distributed under the Apache 2.0 License.
